@@ -2,10 +2,33 @@
 <html>
   <head>
     <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <section class="head__section">
+      <h1 class="title"><%= title %></h1>
+      <p class="head__subtitle">Welcome to the Chat Board</p>
+    </section>
+    <section class="message__section">
+      <ul>
+        <% messages.forEach((message) => { %>
+        <div class="message__container">
+          <div class="message__text"
+            ><li> <h2><%=message.text %> </h2></li></div
+          >
+          <div class="message__info"
+            ><li> <h4><%= message.user %> </h4></li
+            ><li> <h5><%= message.added %></h5> </li>
+          </div></div
+        >
+        <% })%>
+      </ul>
+    </section>
   </body>
 </html>

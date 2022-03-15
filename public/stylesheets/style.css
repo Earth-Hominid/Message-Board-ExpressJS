@@ -1,8 +1,53 @@
+html,
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  background-color: rgb(21, 20, 26);
+  color: #fbfbfb;
+  font-family: 'Roboto', sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.head__section {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 2.5rem;
+  font: Roboto, sans-serif;
+}
+
+.head__subtitle {
+  color: #74a9f6;
+  font-size: 1.875rem;
+}
+
+.message__container {
+  background-color: #343a46;
+  color: #f6f7f9;
+  max-width: 50rem;
+  height: auto;
+  list-style: none;
+  padding: 1rem;
+  margin: 2rem;
+  border-radius: 20px;
+}
+
+.message__text {
+  font-size: 1.25rem;
+}
+
+.message__info {
+  color: #74a9f6;
+  font-size: 1rem;
+}
+
+.message__section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
