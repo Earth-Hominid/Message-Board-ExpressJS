@@ -12,8 +12,42 @@
   </head>
   <body>
     <section class="head__section">
-      <h1 class="title"><%= title %></h1>
-      <p class="head__subtitle">Welcome to the Chat Board</p>
+      <h1 class="title"> Welcome to the Chat Board </h1>
+    </section>
+    <section class="head__section">
+      <h1 head__subtitle>You can enter a message below:</h1>
+    </section>
+    <section class="message__section">
+      <form action='/new' method="POST" class="message__container form__container">
+        <label class="label__style" for="name">Name *</label>
+        <br />
+        <input
+          required="true"
+          class="message__input"
+          type="text"
+          name="user"
+          placeholder="Enter your name"
+        />
+        <br />
+        <label for="name" class="label__style">Message *</label>
+        <br />
+        <textarea
+          wrap="hard"
+          rows="5"
+          cols="15"
+          maxlength="100"
+          minlength="2"
+          required="true"
+          class="text__input"
+          type="text"
+          name="text"
+          placeholder="Enter your message"
+        ></textarea>
+        <br />
+        <div class="flex__middle">
+          <button class="form__button" type="submit">Submit</button>
+        </div>
+      </form>
     </section>
     
     <section class="message__section">

@@ -8,11 +8,11 @@ router.get('/', (req, res) => {
   res.render('index', { title: 'Message Board App', messages });
 });
 
-router.post('/new', (req, res, net) => {
+router.post('/new', (req, res) => {
   const newMessage = {
     id: uuid.v4(),
-    text: messageText,
-    user: messageUser,
+    text: req.body.text,
+    user: req.body.user,
     added: new Date(),
   };
   messages.push(newMessage);
