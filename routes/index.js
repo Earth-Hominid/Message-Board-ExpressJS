@@ -1,27 +1,11 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const uuid = require('uuid');
-
-const messages = [
-  {
-    text: "This just in, the FED has updated it's inflation forecast.",
-    user: 'Financial Times',
-    added: new Date(),
-  },
-  {
-    text: "Breaking news, the International Monetary Fund has released it's Q3 forecast.",
-    user: 'The IMF',
-    added: new Date(),
-  },
-];
+const messages = require('../Messages');
 
 /* GET home page. */
-router.get('/', function (req, res, next) {
-  res.render('index', { title: 'Message Board App', messages: messages });
-});
-
-router.get('/new', function (req, res, next) {
-  res.render('form');
+router.get('/', (req, res) => {
+  res.render('index', { title: 'Message Board App', messages });
 });
 
 router.post('/new', (req, res, net) => {
@@ -33,6 +17,33 @@ router.post('/new', (req, res, net) => {
   };
   messages.push(newMessage);
   res.redirect('/');
+});
+
+router.get('/new', function (req, res, next) {
+  res.render('form');
+});
+
+router.put('/:id', (req, res) => {
+  const found = message.some(
+    (message) => message.id === parseInt(req.params.id)
+  );
+
+  if (found) {
+    const updateMessage = req.body;
+    messages.forEach((message) => {
+      if (message.id === parseInt(req.params.id)) {
+        message.text = updateMessage.text ? updateMessage.text : message.text;
+        message.user = updateMessage.user ? updateMessage.user : message.user;
+
+        // Need to send back response
+        res.json({ msg: 'Message has been updated', message });
+      }
+    });
+  } else {
+    res
+      .status(400)
+      .json({ msg: `There is no message with id of ${req.params.id}` });
+  }
 });
 
 module.exports = router;

@@ -15,6 +15,7 @@
       <h1 class="title"><%= title %></h1>
       <p class="head__subtitle">Welcome to the Chat Board</p>
     </section>
+    
     <section class="message__section">
       <ul>
         <% messages.forEach((message) => { %>
@@ -30,5 +31,10 @@
         <% })%>
       </ul>
     </section>
+    <footer>
+      <div class="footer__container">
+        <a class="link__style" href="/new"> Enter a message<a>
+      </div>
+    </footer>
   </body>
 </html>
